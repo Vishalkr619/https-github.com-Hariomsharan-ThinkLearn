@@ -65,9 +65,12 @@ class BlogDetailsLeftSidebar extends Component {
       });
     }
 
+    // console.log(this.props.match.params.id)
+    console.log(this.props)
     const response = await axios
       .get("http://localhost:5000/lectures?id=" + this.props.match.params.id)
       .then(result => {
+        console.log(result)
         console.log(
           "http://localhost:5000/checkenrollment?id=" +
             this.state.user +
@@ -122,13 +125,13 @@ class BlogDetailsLeftSidebar extends Component {
                 <div className="page-banner text-center">
                   <h1>Course Details</h1>
                   <ul className="page-breadcrumb">
-                    {/* <li>
+                    <li>
                       <a href="/">Home</a>
                     </li>
                     <li>
                       <a href="projects">Courses</a>
                     </li>
-                    <li>Course Details</li> */}
+                    <li>Course Details</li>
                   </ul>
                 </div>
               </div>

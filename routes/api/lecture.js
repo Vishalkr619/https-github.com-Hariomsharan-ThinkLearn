@@ -9,12 +9,14 @@ let lecturemodel = require("../../models/Lecture.js");
 
 /*Get videos*/
 router.get("/lectures", function(req, res) {
+  console.log(req.query)
   lecturemodel
     .find({
       course: req.query.id
     })
     .populate({ path: "course", model: "courses", select: "courseDescription" })
     .then(doc => {
+      console.log(doc)
       // res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
       //res.setHeader('Content-Range', 'users 0-5/5');
       res.json(doc);
@@ -31,13 +33,14 @@ router.get("/lectures", function(req, res) {
 router.post("/lectures/localupload", function(req, res) {
   // res.send('this is post route upload');
   //  console.log(req.files.file);
-
-  coursemodel.find({ courseName: req.body.course }, function(error, cat) {
+  console.log(req.body)
+  coursemodel.findOne({ courseName: req.body.courseName }, function(error, cat) {
+    console.log("cat: " + cat);
     if (!error && cat) {
-      //console.log(cat)
-      req.body.course = cat[0]._id;
+      console.log(cat)
+      req.body.course = cat._id;
     }
-    console.log(req.files);
+    // console.log(req.files);
     if (req.files != undefined) {
       let imagefile = req.files.file;
       imagefile.mv(`Client/public/assets/${req.files.file.name}`);
@@ -48,6 +51,7 @@ router.post("/lectures/localupload", function(req, res) {
       console.log(req.body.videoLink);
       //req.body.videoLink=req.body.youtubelink;
     }
+    console.log(req.body)
     const upload = new lecturemodel(req.body).save();
     res.send("this is post route upload");
     // res.redirect('back');

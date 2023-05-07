@@ -9,7 +9,7 @@ class NavBar extends Component {
     e.preventDefault();
 
     this.props.logoutUser();
-    // window.location.href = "/";
+    window.location.href = "/";
   }
 
   state = {
@@ -27,6 +27,7 @@ class NavBar extends Component {
 
   render() {
     const { isAuthenticated, users } = this.props.auth;
+    console.log(users)
     localStorage.setItem("userid", JSON.stringify(users.id));
     localStorage.setItem("userRole", JSON.stringify(users.role));
     const { displayProp, flexProp } = this.state;
@@ -38,7 +39,7 @@ class NavBar extends Component {
           <div className="header-area header-sticky header-sticky--default">
             <div className="header-area__desktop header-area__desktop--default">
               {/*=======  header navigation area  =======*/}
-              <div className="header-navigation-area default-bg">
+              <div className="header-area__desktop default-bg">
                 <div className="container">
                   <div className="row">
                     <div className="col-lg-12">
@@ -51,12 +52,7 @@ class NavBar extends Component {
                           <nav className="main-nav">
                             <a href={`${process.env.PUBLIC_URL}/home-two`}>
                               <div className="logoHead">
-                                <img
-                                  src="/assets/img/logo/logonew.png"
-                                  alt=""
-                                  className="sticky-logo img-fluid"
-                                />
-                                <h3>KnowHow</h3>
+                                <h3>ThinkLearn</h3>
                               </div>
                             </a>
 
@@ -222,7 +218,7 @@ class NavBar extends Component {
         </li>
         <li>
           <Link className="nav-link" to="/login/instructor">
-            Teach On Knowhow
+            Teach On ThinkLearn
           </Link>
         </li>
       </React.Fragment>
@@ -234,7 +230,7 @@ class NavBar extends Component {
         <div className="header-area header-sticky header-sticky--default">
           <div className="header-area__desktop header-area__desktop--default">
             {/*=======  header navigation area  =======*/}
-            <div className="header-navigation-area default-bg">
+            <div className="header-navigation-area default-bg bg-warning">
               <div className="container">
                 <div className="row">
                   <div className="col-lg-12">
@@ -244,15 +240,11 @@ class NavBar extends Component {
                         className="header-navigation__nav position-static"
                         style={{ width: "100%" }}
                       >
-                        <nav className="main-nav">
+                        <nav className="main-nav" >
                           <a href={`${process.env.PUBLIC_URL}/home-two`}>
                             <div className="logoHead">
-                              <img
-                                src="/assets/img/logo/logonew.png"
-                                alt=""
-                                className="sticky-logo img-fluid"
-                              />
-                              <h3>KnowHow</h3>
+                              
+                              <h3>ThinkLearn</h3>
                             </div>
                           </a>
 

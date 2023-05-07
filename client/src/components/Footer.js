@@ -17,12 +17,12 @@ class Footer extends Component {
                         <div className="footer-logo">
                           <a href={`${process.env.PUBLIC_URL}/home-two`}>
                             <div className="logoHead">
-                              <img
+                              {/* <img
                                 src="/assets/img/logo/logonew.png"
                                 alt=""
                                 className="sticky-logo img-fluid"
-                              />
-                              <h3>KnowHow</h3>
+                              /> */}
+                              <h3>ThinkLearn</h3>
                             </div>
                           </a>
                         </div>

@@ -33,13 +33,13 @@ class Contact extends Component{
                 {/*Contact section start*/}
                 <div className="conact-section">
                     <div className="container">
-                    <div className="row section-space--bottom--50">
+                    {/* <div className="row section-space--bottom--50">
                         <div className="col">
                             <div className="contact-map">
                             <iframe title="google-map" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d392436.93004030554!2d-105.13838587646829!3d39.7265847007123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1558429398879!5m2!1sen!2sbd" allowFullScreen></iframe>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className="row">
                         <div className="col-lg-4 col-12">
                         <div className="contact-information">
@@ -51,7 +51,7 @@ class Contact extends Component{
                                 </li>
                                 <li>
                                     <span className="icon"><i className="ion-ios-telephone-outline" /></span>
-                                    <span className="text"><a href="tel:1234567890">(001) 24568 365 987</a><a href="tel:1234567890">(001) 65897 569 784</a></span>
+                                    <span className="text"><a href="tel:1234567890">5515158452</a><a href="tel:1234567890">(001) 65897 569 784</a></span>
                                 </li>
                                 <li>
                                     <span className="icon"><i className="ion-ios-email-outline" /></span>

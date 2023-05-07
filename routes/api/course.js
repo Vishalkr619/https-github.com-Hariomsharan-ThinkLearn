@@ -14,7 +14,7 @@ router.post("/course/add", (req, res) => {
   // let model=new coursemodel(req.body)
   // function(err, model){
   //     if(!err, model){
-  catmodel.find({ categoryName: req.body.category }, function(error, cat) {
+  catmodel.findOne({ categoryName: req.body.categoryName }, function(error, cat) {
     if (!error && cat) {
       console.log("Cat printed" + cat);
       req.body.category = cat[0]._id;
@@ -42,7 +42,7 @@ router.get("/courses", (req, res, next) => {
 
   coursemodel
     .find()
-    .populate({ path: "category", model: "category" })
+    // .populate({ path: "category", model: "category" })
     .populate({ path: "instructor", model: "users" })
 
     .exec(function(err, results) {

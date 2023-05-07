@@ -12,6 +12,7 @@ const ShowCourse = props => (
   // <button type="button" class="list-group-item list-group-item-action">{props.todo.courseName}</button>
 );
 export default class Upload extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +20,7 @@ export default class Upload extends Component {
       youtubelink: "",
       loaded: 0,
       Courses: [],
-      course: "",
+      courseName: "",
       title: ""
     };
     this.onChangeCourse = this.onChangeCourse.bind(this);
@@ -34,7 +35,7 @@ export default class Upload extends Component {
           this.props.match.params.id
       )
       .then(response => {
-        console.log(this.props.match.params.id);
+        console.log(response.data);
         this.setState({ Courses: response.data });
       })
       .catch(function(error) {
@@ -42,7 +43,9 @@ export default class Upload extends Component {
       });
   }
 
+
   CourseList() {
+    console.log(this.state.Courses)
     return this.state.Courses.map(function(currentTodo, i) {
       //  console.log(currentTodo.categoryName)
       return <ShowCourse todo={currentTodo} key={i} />;
@@ -50,8 +53,9 @@ export default class Upload extends Component {
   }
 
   onChangeCourse(e) {
+    console.log(e.target.value)
     this.setState({
-      course: e.target.value
+      courseName: e.target.value
     });
   }
 
@@ -118,6 +122,7 @@ export default class Upload extends Component {
   };
   onChangeHandler = event => {
     var files = event.target.files;
+    console.log(event.target)
     if (
       this.maxSelectFile(event) &&
       this.checkMimeType(event) &&
@@ -135,7 +140,7 @@ export default class Upload extends Component {
     console.log(`Todo title: ${this.state.title}`);
 
     const data = new FormData();
-    data.append("course", this.state.course);
+    data.append("courseName", this.state.courseName);
     data.append("title", this.state.title);
     if (this.state.youtubelink == "") {
       for (var x = 0; x < this.state.selectedFile.length; x++) {
@@ -171,7 +176,7 @@ export default class Upload extends Component {
   };
 
   render() {
-    var message2 = "you have selected " + this.state.course;
+    var message2 = "you have selected " + this.state.courseName;
     return (
       <div>
         <NavBar />
@@ -192,7 +197,7 @@ export default class Upload extends Component {
                       name="course"
                       id="ada"
                       onChange={this.onChangeCourse}
-                      value={this.state.course}
+                      value={this.state.courseName}
                     >
                       {this.CourseList()}
                     </select>
